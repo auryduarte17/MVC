@@ -20,16 +20,18 @@
                 </tr>
             </thead>
             <tbody>
+                <?php  
+                while ($row = $tareas->fetch(PDO::FETCH_ASSOC)): ?>
                
                 <tr>
-                    <td>1</td>
+                    <td><?php echo($row['titulo']) ?></td>
                     <td>2</td>
                     <td>
                         <a href="" class="btn btn-warning btn-sm">Editar</a>
                         <a href="" class="btn btn-danger btn-sm" onclick="">Eliminar</a>
                     </td>
                 </tr>
-                
+                <?php endwhile; ?>
             </tbody>
         </table>
     </div>
