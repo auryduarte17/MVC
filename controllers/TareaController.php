@@ -16,7 +16,7 @@ class TareaController {
 
 
 //Mostrar todas las tareas
-public function index() {
+public function index(){
     $tareas = $this-> tareaModel->leer();
     include 'views/home.php';
 
@@ -24,7 +24,7 @@ public function index() {
 
 //Crear la tarea
 public function crear() {
-include 'views/crear.php';
+    include 'views/crear.php';
  }
 
  //Guardar la tarea
@@ -43,5 +43,23 @@ include 'views/crear.php';
 
    }
     }
+
+
+    //motrar la informacion en el formulario
+public function editar(){
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $tarea = $this->tareaModel->leerUno($id);
+        if ($tarea){
+            include 'views/editar.php';
+
+} else {
+            echo "Tarea no encontrada.";
+        }
+
+
+
+     }
+     }
      }
 ?>

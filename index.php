@@ -4,17 +4,18 @@ $controller = new TareaController();
 
 $accion = isset($_GET['accion']) ? $_GET['accion'] : 'index';
 
-switch ($accion) {
+switch ($accion){
     case 'crear':
         $controller->crear();
         break;
-        case 'guardar':
+    case 'guardar':
         $controller->guardar();
-        case 'editar':
+        break;
+    case 'editar':
         $controller->editar();
         break;
-        default:
-            $controller->index();
+    default:
+        $controller->index();
             break;
 
  }

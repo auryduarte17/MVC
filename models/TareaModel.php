@@ -19,7 +19,7 @@ class TareaModel {
 
     //crear tarea
     public function crear($titulo, $descripcion) {
-        $query = "INSERT INTO ". $this->table_name. "SET titulo =:titulo, descripcion =:descripcion";
+        $query = "INSERT INTO " . $this->table_name . " SET titulo =:titulo, descripcion =:descripcion";
         $stmt = $this->conn->prepare($query);
 
         $titulo = htmlspecialchars(strip_tags($titulo));
@@ -28,7 +28,7 @@ class TareaModel {
         $stmt->bindParam(":titulo", $titulo);
         $stmt->bindParam(":descripcion", $descripcion);
 
-        if ($stmt->execute()) {
+        if($stmt->execute()) {
             return true;
         }
         return false;
@@ -36,9 +36,9 @@ class TareaModel {
 }
 
 
-//editar tarea
-public function leerUno ($id){
-    $query = "SELECT titulo, descripcion FROM" .$this->table_name . " WHERE id =:id ?LIMIT 0,1";
+//leer tarea
+public function leerUno($id){
+    $query = "SELECT titulo, descripcion FROM" . $this->table_name . " WHERE id = ?LIMIT 0,1";
     $stmt = $this->conn->prepare($query);
     $stmt->bindParam(1, $id);
     $stmt->execute();
@@ -54,22 +54,7 @@ public function leerUno ($id){
 
     }
 
-    //motrar la informacion en el formulario
-public function editar (){
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $tarea = $this->tareaModel->leerUno($id);
-        if ($tarea) {
-            include 'views/editar.php';
-
-} else {
-            echo "Tarea no encontrada.";
-        }
-
-
-
-     }
-     }
+    
      }
      
 ?>

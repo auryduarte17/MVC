@@ -20,14 +20,14 @@
                 </tr>
             </thead>
             <tbody>
-                <?php  
-                while ($row = $tareas->fetch(PDO::FETCH_ASSOC)): ?>
+                <?php while ($row = $tareas->fetch(PDO::FETCH_ASSOC)): ?>
                
                 <tr>
-                    <td><?php echo($row['titulo']) ?></td>
-                    <td>2</td>
+                    <td><?php echo($row['titulo']); ?></td>
+                    <td><?php echo($row['descrpcion']); ?></td>
+                    
                     <td>
-                        <a href="index.php?accion=editar&id= <?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="index.php?accion=editar&id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Editar</a>
                         <a href="" class="btn btn-danger btn-sm" onclick="">Eliminar</a>
                     </td>
                 </tr>
