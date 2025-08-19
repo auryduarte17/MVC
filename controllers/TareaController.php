@@ -78,7 +78,7 @@ public function actualizar()
 
     
     //Eliminar la tarea
-    public function eliminar($id) {
+    public function borrar($id) {
     if ($this->tareaModel->borrar($id)) {
         header("Location: index.php"); 
         exit;

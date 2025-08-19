@@ -11,7 +11,7 @@ class TareaModel
     //leer tareas
     public function leer()
     {
-        $query = "SELECT id, titulo, descripcion, fecha_creacion FROM " . $this->table_name . "WHERE estado = 1 ORDER BY fecha_creacion DESC ";
+        $query = "SELECT id, titulo, descripcion, fecha_creacion FROM " . $this->table_name . " WHERE estado = 1 ORDER BY fecha_creacion DESC";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
