@@ -78,10 +78,13 @@ public function actualizar()
 
     
     //Eliminar la tarea
-    public function borrar($id) {
-    if ($this->tareaModel->borrar($id)) {
-        header("Location: index.php"); 
-        exit;
+    public function borrar() {
+        $id = $_GET['id']??
+    $_POST['id'] ?? null;
+    if ('id') {
+        if($this->tareaModel->borrar($id)) {
+            header('Location: index.php'); 
+        exit();
     } else {
         echo "Error al eliminar la tarea.";
     }
@@ -91,3 +94,7 @@ public function actualizar()
     
     
 }
+
+}
+
+?>
